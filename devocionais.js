@@ -3428,7 +3428,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const versiculoEl = document.getElementById("versiculo");
   const referenciaEl = document.getElementById("referencia");
 
-  const btnWhatsapp = document.getElementById("share-whatsapp");
+  document.getElementById("share-whatsapp").addEventListener("click", () => {
+  const titulo = document.getElementById("titulo-devocional").innerText;
+  const versiculo = document.getElementById("versiculo").innerText;
+  const referencia = document.getElementById("referencia").innerText;
+
+  const pageUrl = window.location.href;
+
+  const texto = `Devocional de hoje:\n\n${titulo}\n"${versiculo}" — ${referencia}\n\nLeia em: ${pageUrl}`;
+
+  const url = `https://wa.me/?text=${encodeURIComponent(texto)}`;
+  window.open(url, "_blank");
+});
+
   const btnFacebook = document.getElementById("share-facebook");
   const btnInstagram = document.getElementById("share-instagram");
 
