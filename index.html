@@ -19,13 +19,24 @@
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+      />
 
 </head>
 <body>
   <main class="container">
     <!-- Topo / Identidade -->
     <header>
+      <img
+        src="assets/logo-encantaria.png"
+        alt="Encantaria Personalizados"
+        class="logo-encantaria"
+      />
+
       <h1>Canecas Devocionais</h1>
       <p class="subtitulo">
         Uma palavra bíblica, uma reflexão e uma oração para o seu dia.
@@ -81,16 +92,34 @@
 
     
 
-    <!-- Rodapé -->
-    <footer>
-      <p>
-        © <span id="ano-atual"></span> Canecas Devocionais · por Encantaria Personalizados.
-      </p>
-      <p class="subtitulo">
-        Escaneado a partir de uma caneca especial. Compartilhe esta mensagem com alguém hoje.
-      </p>
-    </footer>
+<footer>
+  <p>
+    © <span id="ano-atual"></span> Canecas Devocionais · por Encantaria Personalizados.
+  </p>
+
+  <p class="subtitulo">
+    Escaneado a partir de uma caneca especial. Compartilhe esta mensagem com alguém hoje.
+  </p>
+
+  <p class="subtitulo" id="contador-devocionais"></p>
+
+
+
+  <p class="instagram-link">
+    <a
+      href="https://www.instagram.com/encantariapersonalizados/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Abrir Instagram da Encantaria Personalizados"
+    >
+      <i class="fa-brands fa-instagram"></i>
+      <span>@encantariapersonalizados</span>
+    </a>
+  </p>
+</footer>
+
   </main>
+
 
   <!-- Script com devocionais e lógica -->
   <script src="devocionais.js"></script>
