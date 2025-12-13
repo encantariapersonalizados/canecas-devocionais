@@ -3260,6 +3260,97 @@ const devocionais = [
   oracao:
     "Senhor, guarda meu coração com a Tua paz. Amém."
 }
+,
+{
+  titulo: "Chamados à Obediência",
+  versiculo: "Se me amais, guardareis os meus mandamentos.",
+  referencia: "João 14:15",
+  reflexao:
+    "O amor por Jesus se expressa em obediência sincera. Guardar Seus mandamentos não é peso, mas resposta de amor a quem primeiro nos amou.",
+  oracao:
+    "Jesus, ajuda-me a demonstrar meu amor por Ti através da obediência diária. Amém."
+},
+{
+  titulo: "Crescimento Pela Palavra",
+  versiculo: "Desejai ardentemente, como crianças recém-nascidas, o genuíno leite espiritual.",
+  referencia: "1 Pedro 2:2",
+  reflexao:
+    "O crescimento espiritual acontece quando buscamos a Palavra com fome e humildade. Deus nos alimenta para amadurecermos na fé.",
+  oracao:
+    "Pai, desperta em mim sede pela Tua Palavra e ajuda-me a crescer espiritualmente. Amém."
+},
+{
+  titulo: "Fortalecidos no Senhor",
+  versiculo: "Fortalecei-vos no Senhor e na força do seu poder.",
+  referencia: "Efésios 6:10",
+  reflexao:
+    "A força do cristão não está em si mesmo, mas no Senhor. É nEle que encontramos poder para enfrentar cada dia.",
+  oracao:
+    "Senhor, fortalece-me com a Tua força e sustenta minha caminhada. Amém."
+},
+{
+  titulo: "Chamados à Perseverança na Esperança",
+  versiculo: "Retenhamos firmes a confissão da esperança, sem vacilar.",
+  referencia: "Hebreus 10:23",
+  reflexao:
+    "A esperança cristã está firmada nas promessas de Deus. Mesmo em tempos difíceis, somos chamados a permanecer firmes.",
+  oracao:
+    "Pai, ajuda-me a segurar firmemente a esperança que tenho em Ti. Amém."
+},
+{
+  titulo: "O Amor Edifica",
+  versiculo: "O amor edifica.",
+  referencia: "1 Coríntios 8:1b",
+  reflexao:
+    "O conhecimento é importante, mas é o amor que constrói relacionamentos e reflete o caráter de Cristo.",
+  oracao:
+    "Senhor, ensina-me a agir sempre com amor, para edificar e não ferir. Amém."
+},
+{
+  titulo: "Chamados à Vigilância Espiritual",
+  versiculo: "Sede sóbrios e vigilantes.",
+  referencia: "1 Pedro 5:8a",
+  reflexao:
+    "A vigilância espiritual nos mantém atentos à vontade de Deus e firmes na fé, mesmo em meio às tentações.",
+  oracao:
+    "Pai, mantém meu coração vigilante e sensível à Tua direção. Amém."
+},
+{
+  titulo: "Deus Opera Além do Que Pedimos",
+  versiculo: "Ora, àquele que é poderoso para fazer infinitamente mais.",
+  referencia: "Efésios 3:20",
+  reflexao:
+    "Deus vai além das nossas expectativas. Seu poder age de maneira abundante e surpreendente.",
+  oracao:
+    "Senhor, confio no Teu poder que age além do que posso imaginar. Amém."
+},
+{
+  titulo: "Chamados à Unidade",
+  versiculo: "Procurando guardar a unidade do Espírito.",
+  referencia: "Efésios 4:3",
+  reflexao:
+    "A unidade é fruto do Espírito e testemunho vivo do amor de Deus entre nós.",
+  oracao:
+    "Pai, ajuda-me a promover a unidade e a paz por onde eu passar. Amém."
+},
+{
+  titulo: "Vida Guiada Pelo Espírito",
+  versiculo: "Todos os que são guiados pelo Espírito de Deus são filhos de Deus.",
+  referencia: "Romanos 8:14",
+  reflexao:
+    "Ser guiado pelo Espírito é sinal de filiação. Ele nos conduz em verdade e amor.",
+  oracao:
+    "Espírito Santo, guia minha vida e minhas decisões hoje. Amém."
+},
+{
+  titulo: "Esperar com Confiança",
+  versiculo: "O Senhor é fiel em todas as suas palavras.",
+  referencia: "2 Tessalonicenses 3:3",
+  reflexao:
+    "A fidelidade de Deus nos permite esperar com confiança, sabendo que Ele cumpre tudo o que promete.",
+  oracao:
+    "Pai, confio na Tua fidelidade e descanso nas Tuas promessas. Amém."
+}
 
 
 ];
@@ -3299,22 +3390,7 @@ function mostrarDevocional(indice) {
   const anoAtualEl = document.getElementById("ano-atual");
   if (anoAtualEl) anoAtualEl.textContent = hoje.getFullYear();
 
-    // TESTE: contador de devocionais disponíveis (remover depois)
-  const contadorEl = document.getElementById("contador-devocionais");
-  if (contadorEl) {
-    const total = devocionais.length;
-    const cobre365 = total >= 365;
-    const cobre366 = total >= 366;
-
-    let status = "ainda não cobre o ano todo";
-    if (cobre366) status = "cobre o ano todo (inclusive bissexto)";
-    else if (cobre365) status = "cobre o ano todo (365 dias)";
-
-    contadorEl.textContent = `Devocionais disponíveis: ${total} — ${status}.`;
-  }
-
-
-    // Animação de entrada do card
+  // Animação de entrada do card
   const card = document.getElementById("devocional-card");
   if (card) {
     // permite "re-animar" caso você use mostrarDevocional() de novo no futuro
@@ -3346,7 +3422,7 @@ function mostrarDevocional(indice) {
 // ---------------- COMPARTILHAMENTO ----------------
 
 document.addEventListener("DOMContentLoaded", function () {
-  const baseURL = "https://paulocrjr.github.io/canecas-devocionais/";
+  const baseURL = "https://encantariapersonalizados.github.io/canecas-devocionais/";
 
   const tituloEl = document.getElementById("titulo-devocional");
   const versiculoEl = document.getElementById("versiculo");
