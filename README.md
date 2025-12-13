@@ -49,7 +49,7 @@ Toda a lógica está implementada em JavaScript puro.
 
 O site está hospedado gratuitamente no GitHub Pages:
 
-👉 [https://paulocrjr.github.io/canecas-devocionais/](https://encantariapersonalizados.github.io/canecas-devocionais/)
+👉 [[https://paulocrjr.github.io/canecas-devocionais/](https://encantariapersonalizados.github.io/canecas-devocionais/)]
 
 ---
 
