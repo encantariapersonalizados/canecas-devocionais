@@ -3673,3 +3673,92 @@ oracao:
 
 
 ];
+
+function formatarData(data) {
+  return data.toLocaleDateString("pt-BR", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
+function obterIndiceDoDia(total) {
+  const hoje = new Date();
+  const inicio = new Date(2025, 0, 1); // 1 jan 2025
+  const diffEmMs = hoje - inicio;
+  const diffEmDias = Math.floor(diffEmMs / (1000 * 60 * 60 * 24));
+  return ((diffEmDias % total) + total) % total;
+}
+
+function preencherDevocional() {
+  if (!Array.isArray(devocionais) || devocionais.length === 0) {
+    console.error("Lista de devocionais ausente ou vazia.");
+    return;
+  }
+
+  const indice = obterIndiceDoDia(devocionais.length);
+  const devocional = devocionais[indice];
+  const hoje = new Date();
+
+  const dataAtual = document.getElementById("data-atual");
+  const titulo = document.getElementById("titulo-devocional");
+  const referencia = document.getElementById("referencia");
+  const versiculo = document.getElementById("versiculo");
+  const reflexao = document.getElementById("texto-reflexao");
+  const oracao = document.getElementById("texto-oracao");
+  const anoAtual = document.getElementById("ano-atual");
+  const contador = document.getElementById("contador-devocionais");
+
+  if (dataAtual) dataAtual.textContent = formatarData(hoje);
+  if (titulo) titulo.textContent = devocional.titulo || "";
+  if (referencia) referencia.textContent = devocional.referencia || "";
+  if (versiculo) versiculo.textContent = `"${devocional.versiculo || ""}"`;
+  if (reflexao) reflexao.textContent = devocional.reflexao || "";
+  if (oracao) oracao.textContent = devocional.oracao || "";
+  if (anoAtual) anoAtual.textContent = hoje.getFullYear();
+  if (contador) contador.textContent = `${devocionais.length} devocionais disponíveis.`;
+}
+
+function configurarCompartilhamento() {
+  const titulo = document.getElementById("titulo-devocional")?.textContent || "";
+  const referencia = document.getElementById("referencia")?.textContent || "";
+  const versiculo = document.getElementById("versiculo")?.textContent || "";
+  const url = window.location.href;
+
+  const texto = `${titulo}\n${referencia}\n${versiculo}\n\nVeja em: ${url}`;
+
+  const whatsappBtn = document.getElementById("share-whatsapp");
+  const facebookBtn = document.getElementById("share-facebook");
+  const instagramBtn = document.getElementById("share-instagram");
+
+  if (whatsappBtn) {
+    whatsappBtn.addEventListener("click", () => {
+      const link = `https://wa.me/?text=${encodeURIComponent(texto)}`;
+      window.open(link, "_blank");
+    });
+  }
+
+  if (facebookBtn) {
+    facebookBtn.addEventListener("click", () => {
+      const link = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+      window.open(link, "_blank");
+    });
+  }
+
+  if (instagramBtn) {
+    instagramBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(texto);
+        alert("Texto copiado para a área de transferência. Cole no Instagram.");
+      } catch (e) {
+        alert("Não foi possível copiar automaticamente. Copie manualmente.");
+      }
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  preencherDevocional();
+  configurarCompartilhamento();
+});
