@@ -3709,6 +3709,7 @@ function preencherDevocional() {
   const oracao = document.getElementById("texto-oracao");
   const anoAtual = document.getElementById("ano-atual");
   const contador = document.getElementById("contador-devocionais");
+  const card = document.getElementById("devocional-card");
 
   if (dataAtual) dataAtual.textContent = formatarData(hoje);
   if (titulo) titulo.textContent = devocional.titulo || "";
@@ -3718,8 +3719,8 @@ function preencherDevocional() {
   if (oracao) oracao.textContent = devocional.oracao || "";
   if (anoAtual) anoAtual.textContent = hoje.getFullYear();
   if (contador) contador.textContent = `${devocionais.length} devocionais disponíveis.`;
+  if (card) card.classList.add("card-visivel");
 }
-
 function configurarCompartilhamento() {
   const titulo = document.getElementById("titulo-devocional")?.textContent || "";
   const referencia = document.getElementById("referencia")?.textContent || "";
